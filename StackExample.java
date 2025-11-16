@@ -1,28 +1,39 @@
+import java.util.LinkedList; 
 
-import java.util.LinkedList;
+class MyStack<T> extends LinkedList<T> {
 
-class MyQueue<T> extends LinkedList<T> {
-    public void enqueue(T item) {
-        this.addLast(item);
+    // push: add item to top of stack
+    public void push(T item) {
+        this.addLast(item);   
     }
 
-    public T dequeue() {
-        if (!isEmpty()) {
-            return this.removeFirst();
-        } else {
-            return null;
-        }
+    // pop: remove and return top element
+    public T pop() {
+        if (this.isEmpty()) return null;
+        return this.removeLast();
     }
 
+    // 检查栈是否为空
     public boolean isEmpty() {
         return super.isEmpty();
     }
 
+    // 返回栈中的元素数量
     public int size() {
         return super.size();
     }
 }
 
+public class StackExample{
+    public static void main(String[] args) {
+        MyStack<Integer> stack = new MyStack<>();
+        //do some test if needed
+
+    }
+}
+
+//我的Junit測試會測這個Object，這邊以下請不要修改
+//---------------------------------------------------------------------------------
 class Person {
     private String name;
     private int age;
@@ -32,16 +43,11 @@ class Person {
         this.age = age;
     }
 
+    @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        return "Person{name='" + name + "', age=" + age + "}";
     }
 }
+//---------------------------------------------------------------------------------
 
-public class QueueExample {
-    public static void main(String[] args) {
-        MyQueue<Integer> intQueue = new MyQueue<>();
-    }
-}
+
